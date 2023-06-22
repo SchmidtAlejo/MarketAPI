@@ -1,0 +1,26 @@
+docker container run -d --name=marketAPI -p 6603:3306 -e MYSQL_ROOT_PASSWORD=marketAPI mysql
+
+creacion de la DB:
+npx sequelize-cli db:create
+
+creacion de tablas:
+npx sequelize-cli model:generate --name Usuarios --attributes email:string,contrasenia:string,nombre:string,apellido:string,nroTelefono:string,nroTarjeta:string,codigo:stringnpx sequelize-cli model:generate --name Usuarios --attributes email:string,contrasenia:string,nombre:string,apellido:string,email:string,nroTelefono:string,nroTarjeta:string,codigo:string
+
+npx sequelize-cli model:generate --name Direcciones --attributes provincia:string,ciudad:string,calle:string,numero:integer,codigoPostal:integer,usuarioId:integer
+
+npx sequelize-cli model:generate --name Compras --attributes usuarioId:integer,carritoId:integer,total:integer
+
+npx sequelize-cli model:generate --name Carritos --attributes usuarioId:integer,activo:boolean,subtotal:integer
+
+npx sequelize-cli model:generate --name CarritosItems --attributes carritoId:integer,productoId:integer,valorUnitario:integer,cantidad:integer,subtotal:integer
+
+npx sequelize-cli model:generate --name ProductosDeseados --attributes usuarioId:integer,productoId:integer
+
+npx sequelize-cli model:generate --name Categorias --attributes nombre:string
+
+npx sequelize-cli model:generate --name Productos --attributes nombre:string,descripciones:string,precio:integer,activo:boolean,stock:integer,categoriaId:integer
+
+npx sequelize-cli model:generate --name Resenias --attributes usuarioId:integer,productoId:integer,valoracion:string,comentario:string
+
+migraciones:
+npx sequelize-cli db:migrate
