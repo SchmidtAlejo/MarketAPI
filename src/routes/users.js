@@ -29,7 +29,7 @@ router.post("/", async function (req, res) {
 
 router.post("/login", async function (req, res){
   try {
-    res.json(await controller.login(req.body.email, req.body.password));
+    res.json(await controller.login(req.body.email, req.body.contrasenia));
   } catch (error) {
     res.status(401).send(error.message);
   }

@@ -4,6 +4,8 @@ creacion de la DB:
 npx sequelize-cli db:create
 
 creacion de tablas:
+npx sequelize-cli model:generate --name TiposClientes --attributes cliente:string
+
 npx sequelize-cli model:generate --name Usuarios --attributes email:string,contrasenia:string,nombre:string,apellido:string,nroTelefono:string,nroTarjeta:string,codigo:stringnpx sequelize-cli model:generate --name Usuarios --attributes email:string,contrasenia:string,nombre:string,apellido:string,email:string,nroTelefono:string,nroTarjeta:string,codigo:string
 
 npx sequelize-cli model:generate --name Direcciones --attributes provincia:string,ciudad:string,calle:string,numero:integer,codigoPostal:integer,usuarioId:integer

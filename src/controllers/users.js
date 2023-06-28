@@ -4,7 +4,9 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 async function addUser(user) {
+  console.log(user.contrasenia);
   user.contrasenia = await bcrypt.hash(user.contrasenia, 8);
+  user.tipoUsuariosId = 'cli';
   return await data.addUser(user);
 }
 
@@ -16,12 +18,12 @@ async function getUserById(id) {
   return await data.getUserById(id);
 }
 
-async function login(email, password) {
-  const user = await data.findByCredentials(email, password);
+async function login(email, contrasenia) {
+  const user = await data.findByCredentials(email, contrasenia);
   const token = jwt.sign({ id: user.id }, process.env.CLAVETOKEN, {
     expiresIn: "2h",
   });
-  const isMatch = await bcrypt.compare(password, user.contrasenia);
+  const isMatch = await bcrypt.compare(contrasenia, user.contrasenia);
   if (!user || !isMatch) {
     throw new Error("Credenciales no validas");
   }

@@ -25,6 +25,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      dni: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       nroTelefono: {
         type: Sequelize.STRING,
         allowNull: false
@@ -32,9 +36,23 @@ module.exports = {
       nroTarjeta: {
         type: Sequelize.STRING
       },
-      codigo: {
+      nombreTarjeta: {
         type: Sequelize.STRING
       },
+      vencimientoTarjeta: {
+        type: Sequelize.STRING
+      },
+      codigoTarjeta: {
+        type: Sequelize.STRING
+      },
+      tipoUsuariosId: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        references: {
+          model: 'TiposUsuarios',
+          key: 'id'
+        },
+      },      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

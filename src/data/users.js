@@ -30,6 +30,7 @@ async function updateUser(id, body) {
       nombre: body.nombre,
       apellido: body.apellido,
       nroTelefono: body.nroTelefono,
+      dni: body.dni
     },
     { where: { id: id } }
   );
