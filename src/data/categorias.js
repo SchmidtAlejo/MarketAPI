@@ -8,6 +8,10 @@ async function getCategorias() {
   return { categorias: await modeloCategoria.findAll() };
 }
 
+async function getCategoriaByPk(id) {
+  return await modeloCategoria.findByPk(id);
+}
+
 async function updateCategoria(body) {
   return await modeloCategoria.update(
     { nombre: body.nombre },
@@ -24,4 +28,5 @@ module.exports = {
   getCategorias,
   updateCategoria,
   deleteCategoria,
+  getCategoriaByPk
 };

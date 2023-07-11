@@ -17,15 +17,14 @@ module.exports = (sequelize, DataTypes) => {
       Carritos.hasOne(models.Compras, {
         foreignKey: 'carritoId'
       })
-      Carritos.hasOne(models.CarritosItems, {
+      Carritos.hasMany(models.CarritosItems, {
         foreignKey: 'carritoId'
       })
     }
   }
   Carritos.init({
     usuarioId: DataTypes.INTEGER,
-    activo: DataTypes.BOOLEAN,
-    subtotal: DataTypes.INTEGER
+    activo: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Carritos',

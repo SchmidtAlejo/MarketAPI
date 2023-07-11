@@ -13,7 +13,7 @@ router.post("/", async function (req, res) {
 router.get("/", async function (req, res) {
   try {
     req.query.categoriaId?
-    res.json(await controller.getProductosPorCategoria(req.query.categoriaId)):
+    res.json(await controller.getProductosPorCategoria(req.query.categoriaId, req.query.page, req.query.order)):
     res.json(await controller.getProducto());
   } catch (error) {
     res.status(401).send(error.message);

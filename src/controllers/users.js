@@ -1,13 +1,15 @@
 const data = require("./../data/users");
+const dataCarritos = require("./../data/carritos");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 async function addUser(user) {
-  console.log(user.contrasenia);
   user.contrasenia = await bcrypt.hash(user.contrasenia, 8);
   user.tipoUsuariosId = 'cli';
-  return await data.addUser(user);
+  const newUser= await data.addUser(user);
+  const carrito= await dataCarritos.addCarrito({usuarioId: newUser.id, activo: true});
+  return {newUser, carrito};
 }
 
 async function getUsers() {

@@ -12,8 +12,8 @@ async function getProductoById(id) {
   return data.getProductoById(id);
 }
 
-async function getProductosPorCategoria(id) {
-  return data.getProductosPorCategoria(id);
+async function getProductosPorCategoria(id, page, order) {
+  return data.getProductosPorCategoria(id, page, order);
 }
 
 async function updateProducto(body) {

@@ -43,6 +43,16 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'   
       },
+      vendedorId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Usuarios',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'   
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

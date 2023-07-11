@@ -9,7 +9,6 @@ async function getUserById(id) {
 }
 
 async function addUser(user) {
-  console.log(user);
   if (await modeloUsuario.findOne({ where: { email: user.email } })) {
     throw new Error("El email ingresado ya esta en uso");
   }

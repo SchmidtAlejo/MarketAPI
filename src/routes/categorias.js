@@ -18,6 +18,14 @@ router.get("/", async function (req, res) {
   }
 });
 
+router.get("/:id", async function (req, res) {
+  try {
+    res.json(await controller.getCategoriaByPk(req.params.id));
+  } catch (error) {
+    res.status(401).send(error.message);
+  }
+});
+
 router.put("/", async function (req, res) {
   try {
     res.json(await controller.updateCategoria(req.body));
