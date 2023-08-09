@@ -9,7 +9,7 @@ async function getCarritoByPk(id) {
 }
 
 async function getCarritoActivo(usuarioId) {
-  return await modeloCarritos.findOne({ where: { usuarioId: usuarioId } });
+  return await modeloCarritos.findOne({ where: { usuarioId: usuarioId, activo: true } });
 }
 
 async function actualizarSubtotal(subtotal, usuarioId) {
