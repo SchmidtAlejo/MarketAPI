@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "carritoId",
         targetKey: "id",
       });
+      Compras.belongsTo(models.Direcciones, {
+        foreignKey: 'direccionId',
+        targetKey: 'id'
+      })
     }
   }
   Compras.init(
@@ -23,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       usuarioId: DataTypes.INTEGER,
       carritoId: DataTypes.INTEGER,
       total: DataTypes.INTEGER,
+      direccionId: DataTypes.INTEGER
     },
     {
       sequelize,

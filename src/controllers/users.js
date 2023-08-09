@@ -17,7 +17,9 @@ async function getUsers() {
 }
 
 async function getUserById(id) {
-  return await data.getUserById(id);
+  const user= await data.getUserById(id);
+  user.contrasenia= null;
+  return user;
 }
 
 async function login(email, contrasenia) {

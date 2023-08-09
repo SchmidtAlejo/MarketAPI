@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Carritos.init({
     usuarioId: DataTypes.INTEGER,
-    activo: DataTypes.BOOLEAN
+    activo: DataTypes.BOOLEAN,
+    subtotal: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Carritos',

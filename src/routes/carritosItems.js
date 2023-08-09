@@ -6,7 +6,7 @@ const controller = require("./../controllers/carritosItems");
 
 router.post("/", decodeToken, async function (req, res) {
     try {
-        res.json(await controller.addCarritosItems(body, req.id))
+        res.json(await controller.addCarritosItems(req.body, req.id))
     } catch (error) {
         res.status(401).send(error.message);
     }
@@ -22,7 +22,7 @@ router.get("/:id", decodeToken, async function (req, res) {
 
 router.get("/", decodeToken, async function (req, res) {
     try {
-        res.json(await controller.getCarritosItems(req.query.carritoId));
+        res.json(await controller.getCarritosItems(req.id));
     } catch (error) {
         res.status(401).send(error.message);
     }
@@ -30,7 +30,7 @@ router.get("/", decodeToken, async function (req, res) {
 
 router.put("/", decodeToken, async function (req, res) {
     try {
-        res.json(await controller.updateCarritoItem(req.id, req.body));
+        res.json(await controller.updateCarritoItem(req.body, req.id));
     } catch (error) {
         res.status(401).send(error.message);
     }
@@ -38,7 +38,7 @@ router.put("/", decodeToken, async function (req, res) {
 
 router.delete("/", decodeToken, async function (req, res) {
     try {
-        res.json(await controller.deleteCarritosItems(req.body.id));
+        res.json(await controller.deleteCarritosItems(req.body.id, req.id));
     } catch (error) {
         res.status(401).send(error.message);
     }

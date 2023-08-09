@@ -5,7 +5,7 @@ const { decodeToken } = require("./../../middleware/TokenMiddleware");
 
 router.post("/", decodeToken, async function (req, res) {
     try {
-        res.json(await controller.addCompra());
+        res.json(await controller.addCompra(req.body, req.id));
     } catch (error) {
         res.status(401).send(error.message);
     }
@@ -26,3 +26,5 @@ router.get("/", decodeToken, async function(req, res){
         res.status(401).send(error.message);
     }
 })
+
+module.exports= router;

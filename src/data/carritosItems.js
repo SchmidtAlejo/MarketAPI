@@ -1,6 +1,7 @@
 const { getCarritoActivo } = require("./carritos");
 
 const modeloCarritosItems = require("./../../models").CarritosItems;
+const modeloProductos = require("./../../models").Productos;
 
 async function addCarritosItems(body, usuarioId){
     const carrito= await getCarritoActivo(usuarioId);
@@ -12,11 +13,11 @@ async function getCarritoItemByPk(id){
 }
 
 async function getCarritosItems(carritoId){
-    return await modeloCarritosItems.findAll({where: {carritoId: carritoId}})
+    return {carritosItems: await modeloCarritosItems.findAll({where: {carritoId: carritoId}, include: modeloProductos})}
 }
 
-async function updateCarritoItem(id, body){
-    return await modeloCarritosItems.update({body, where: {id: id}})
+async function updateCarritoItem(body){
+    return await modeloCarritosItems.update(body, {where: {id: body.id}})
 }
 
 async function deleteCarritosItems(id){

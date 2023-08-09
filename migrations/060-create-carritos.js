@@ -23,6 +23,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
+      subtotal:{
+        defaultValue: 0,
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

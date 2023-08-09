@@ -12,11 +12,18 @@ async function getCarritoActivo(usuarioId) {
   return await modeloCarritos.findOne({ where: { usuarioId: usuarioId } });
 }
 
-async function desactivarCarrito(id, usuarioId) {
+async function actualizarSubtotal(subtotal, usuarioId) {
   return await modeloCarritos.update(
-    { activo: false },
-    { where: { id: id, usuarioId: usuarioId, activo: true } }
+    { subtotal: subtotal },
+    { where: { usuarioId: usuarioId, activo: true } }
   );
 }
 
-module.exports = { addCarrito, desactivarCarrito, getCarritoByPk, getCarritoActivo };
+async function desactivarCarrito(usuarioId) {
+  return await modeloCarritos.update(
+    { activo: false },
+    { where: { usuarioId: usuarioId, activo: true } }
+  );
+}
+
+module.exports = { addCarrito, desactivarCarrito, getCarritoByPk, getCarritoActivo, actualizarSubtotal };

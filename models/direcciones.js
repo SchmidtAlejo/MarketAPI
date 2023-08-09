@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'usuarioId',
         targetKey: 'id'
       })
+      Direcciones.hasMany(models.Compras, {
+        foreignKey: "direccionId",
+      });
     }
   }
   Direcciones.init({

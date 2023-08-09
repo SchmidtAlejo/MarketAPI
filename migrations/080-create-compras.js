@@ -29,6 +29,16 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'   
       },
+      direccionId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Direcciones',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'       
+      },
       total: {
         type: Sequelize.INTEGER,
         allowNull: false

@@ -9,7 +9,7 @@ async function getCompraByPk(id){
 }
 
 async function getCompras(usuarioId){
-    return await modeloCompras.findAll({where: {usuarioId: usuarioId}});
+    return {compras: await modeloCompras.findAll({where: {usuarioId: usuarioId}})};
 }
 
 module.exports= {addCompra, getCompraByPk, getCompras};

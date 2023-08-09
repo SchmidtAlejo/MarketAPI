@@ -1,11 +1,12 @@
 const modeloUsuario = require("./../../models").Usuarios;
+const modeloDirecciones = require("./../../models").Direcciones;
 
 async function getUsers() {
   return { users: await modeloUsuario.findAll() };
 }
 
 async function getUserById(id) {
-  return await modeloUsuario.findByPk(id);
+  return await modeloUsuario.findOne({where:{id: id}, include: modeloDirecciones});
 }
 
 async function addUser(user) {

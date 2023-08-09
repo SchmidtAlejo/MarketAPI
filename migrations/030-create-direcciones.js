@@ -31,7 +31,7 @@ module.exports = {
       },
       piso: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       usuarioId: {
         type: Sequelize.INTEGER,

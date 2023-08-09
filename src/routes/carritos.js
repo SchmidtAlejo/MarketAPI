@@ -19,12 +19,4 @@ router.get("/", decodeToken, async function (req, res) {
   }
 });
 
-router.put("/", decodeToken, async function (req, res) {
-  try {
-    res.json(await controller.desactivarCarrito(req.body.id, req.id));
-  } catch (error) {
-    res.status(401).send(error.message);
-  }
-});
-
 module.exports = router;
