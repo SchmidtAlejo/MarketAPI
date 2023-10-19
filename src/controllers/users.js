@@ -23,7 +23,7 @@ async function getUserById(id) {
 }
 
 async function login(email, contrasenia) {
-  const user = await data.findByCredentials(email, contrasenia);
+  const user = await data.findByCredentials(email);
   const token = jwt.sign({ id: user.id }, process.env.CLAVETOKEN, {
     expiresIn: "2h",
   });

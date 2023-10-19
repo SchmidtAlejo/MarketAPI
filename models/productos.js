@@ -14,10 +14,6 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'categoriaId',
         targetKey: 'id'
       });
-      Productos.belongsTo(models.Usuarios, {
-        foreignKey: 'vendedorId',
-        targetKey: 'id'
-      });
       Productos.hasMany(models.ProductosDeseados, {
         foreignKey: 'productoId'
       });
@@ -33,8 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     activo: DataTypes.BOOLEAN,
     stock: DataTypes.INTEGER,
     imagen: DataTypes.STRING,
-    categoriaId: DataTypes.INTEGER,
-    vendedorId: DataTypes.INTEGER
+    categoriaId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Productos',

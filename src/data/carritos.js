@@ -1,4 +1,5 @@
 const modeloCarritos = require("./../../models").Carritos;
+const modeloCarritosItems = require("./../../models").CarritosItems;
 
 async function addCarrito(body) {
   return await modeloCarritos.create(body);
@@ -9,7 +10,7 @@ async function getCarritoByPk(id) {
 }
 
 async function getCarritoActivo(usuarioId) {
-  return await modeloCarritos.findOne({ where: { usuarioId: usuarioId, activo: true } });
+  return await modeloCarritos.findOne({ where: { usuarioId: usuarioId, activo: true }, include: modeloCarritosItems});
 }
 
 async function actualizarSubtotal(subtotal, usuarioId) {

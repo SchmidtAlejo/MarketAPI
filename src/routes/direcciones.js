@@ -2,45 +2,46 @@ var express = require("express");
 var router = express.Router();
 const controller = require("../controllers/direcciones");
 const { decodeToken } = require("./../../middleware/TokenMiddleware");
+const response = require('../response/response');
 
-router.get("/:id", decodeToken, async function(req, res){
+router.get("/:id", decodeToken, async function (req, res) {
     try {
-        res.json(await controller.getDireccion(req.params.id));
+        response.success(res, await controller.getDireccion(req.params.id), 200);
     } catch (error) {
-        res.status(401).send(error.message);
+        response.error(res, error.message, 400);
     }
 })
 
-router.get("/", decodeToken, async function(req, res){
+router.get("/", decodeToken, async function (req, res) {
     try {
-        res.json(await controller.getDirecciones(req.id));
+        response.success(res, await controller.getDirecciones(req.id), 200);
     } catch (error) {
-        res.status(401).send(error.message);
+        response.error(res, error.message, 400);
     }
 })
 
 router.post("/", decodeToken, async function (req, res) {
     try {
-        res.json(await controller.addDireccion(req.id, req.body));
+        response.success(res, await controller.addDireccion(req.id, req.body), 200);
     } catch (error) {
-        res.status(401).send(error.message);
+        response.error(res, error.message, 400);
     }
 })
 
-router.put("/", decodeToken, async function(req, res){
+router.put("/", decodeToken, async function (req, res) {
     try {
-        res.json(await controller.updateDirecciones(req.body));
+        response.success(res, await controller.updateDirecciones(req.body), 200);
     } catch (error) {
-        res.status(401).send(error.message);
+        response.error(res, error.message, 400);
     }
 })
 
-router.delete("/", decodeToken, async function(req, res){
+router.delete("/", decodeToken, async function (req, res) {
     try {
-        res.json(await controller.deleteDirecciones(req.body.id));
+        response.success(res, await controller.deleteDirecciones(req.body.id), 200);
     } catch (error) {
-        res.status(401).send(error.message);
+        response.error(res, error.message, 400);
     }
 })
 
-module.exports= router;
+module.exports = router;

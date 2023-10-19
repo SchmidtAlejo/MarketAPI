@@ -16,7 +16,7 @@ async function addUser(user) {
   return await modeloUsuario.create(user);
 }
 
-async function findByCredentials(email, password) {
+async function findByCredentials(email) {
   const user = await modeloUsuario.findOne({ where: { email: email } });
   if (!user) {
     throw new Error("Credenciales no validas");

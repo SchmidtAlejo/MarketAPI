@@ -2,20 +2,21 @@ var express = require("express");
 var router = express.Router();
 const { decodeToken } = require("../../middleware/TokenMiddleware");
 const controller = require("./../controllers/carritos");
+const response = require('../response/response');
 
 router.get("/:id", decodeToken, async function (req, res) {
   try {
-    res.json(await controller.getCarritoByPk(req.params.id));
+    response.success(res, await controller.getCarritoByPk(req.params.id), 200);
   } catch (error) {
-    res.status(401).send(error.message);
+    response.error(res, error.message, 400);
   }
 });
 
 router.get("/", decodeToken, async function (req, res) {
   try {
-    res.json(await controller.getCarritoActivo(req.id));
+    response.success(res, await controller.getCarritoActivo(req.id), 200);
   } catch (error) {
-    res.status(401).send(error.message);
+    response.error(res, error.message, 400);
   }
 });
 

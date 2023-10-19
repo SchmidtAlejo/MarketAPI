@@ -1,12 +1,13 @@
 var express = require("express");
 var router = express.Router();
 const controller = require("./../controllers/seed");
+const response = require('../response/response');
 
 router.post("/", async function (req, res) {
   try {
-    res.json(await controller.generateSeed(req.body));
+    response.success(res, await controller.generateSeed(req.body), 200);
   } catch (error) {
-    res.status(401).send(error.message);
+    response.error(res, error.message, 400);
   }
 });
 

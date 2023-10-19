@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
+const response = require('../src/response/response')
 
 class TokenMiddleware {
   async decodeToken(req, res, next) {
@@ -9,7 +10,7 @@ class TokenMiddleware {
       req.id = user.id;
       return next();
     } catch (error) {
-      res.status(401).send({ error: "invalid token" });
+      response.error(res, 'invalid token', 401);
     }
   }
 }

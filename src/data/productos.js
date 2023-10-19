@@ -16,6 +16,15 @@ async function getProductoById(id) {
   });
 }
 
+// async function getProductoPorVendedor(id) {
+//   return {
+//     productos: await modeloProductos.findAll({
+//       where: { vendedorId: id },
+//       include: modeloCategorias
+//     })
+//   }
+// }
+
 async function getProductosPorCategoria(id, page, order) {
   const LIMIT_PRODUCT_PAGES = 8;
   //order -> ASC, DESC
@@ -33,16 +42,11 @@ async function getProductosPorCategoria(id, page, order) {
 }
 
 async function updateProducto(body) {
+  if(body.stock===0){
+    body.activo = false;
+  }
   return await modeloProductos.update(
-    {
-      nombre: body.nombre,
-      descripciones: body.descripciones,
-      precio: body.precio,
-      activo: body.activo,
-      stock: body.stock,
-      imagen: body.imagen,
-      categoriaId: body.categoriaId,
-    },
+    body,
     { where: { id: body.id } }
   );
 }
@@ -57,5 +61,5 @@ module.exports = {
   getProductosPorCategoria,
   updateProducto,
   deleteProducto,
-  getProductoById,
+  getProductoById
 };
