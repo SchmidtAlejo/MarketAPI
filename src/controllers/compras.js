@@ -6,8 +6,8 @@ const dataProductos = require("./../data/productos");
 async function addCompra(body, usuarioId) {
     body.usuarioId = usuarioId
     await verificarStock(usuarioId);
-    await restarStock(usuarioId);
     const compra = await data.addCompra(body);
+    await restarStock(usuarioId);
     await dataCarritos.desactivarCarrito(usuarioId)
     await dataCarritos.addCarrito({ usuarioId: usuarioId, activo: true });
     return compra;
@@ -25,14 +25,28 @@ const restarStock = async (usuarioId) => {
     const carrito = await dataCarritos.getCarritoActivo(usuarioId);
     const carritosItems = await dataCarritosItems.getCarritosItems(carrito.id)
     carritosItems.carritosItems.forEach(async carritoItem => {
-        console.log(carritoItem.Producto.stock - carritoItem.cantidad);
         await dataProductos.updateProducto(
             {
                 id: carritoItem.productoId,
                 stock: carritoItem.Producto.stock - carritoItem.cantidad
             });
     });
+    await restaurarStock();
 }
+
+const restaurarStock = async () => {
+    const productosSinStock = await dataProductos.getProductosSinStock();
+    if (productosSinStock.productos.length >= 3) {
+        productosSinStock.productos.forEach( async producto => {
+            await dataProductos.updateProducto(
+                {
+                    id: producto.id,
+                    stock: 10
+                });
+        })
+    }
+}
+
 async function getCompraByPk(id) {
     return await data.getCompraByPk(id);
 }

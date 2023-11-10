@@ -9,21 +9,20 @@ async function getProducto() {
   return { productos: await modeloProductos.findAll() };
 }
 
+async function getProductosSinStock() {
+  return {
+    productos: await modeloProductos.findAll({
+      where: { stock: 0 }
+    })
+  };
+}
+
 async function getProductoById(id) {
   return await modeloProductos.findOne({
     where: { id: id },
     include: modeloCategorias
   });
 }
-
-// async function getProductoPorVendedor(id) {
-//   return {
-//     productos: await modeloProductos.findAll({
-//       where: { vendedorId: id },
-//       include: modeloCategorias
-//     })
-//   }
-// }
 
 async function getProductosPorCategoria(id, page, order) {
   const LIMIT_PRODUCT_PAGES = 8;
@@ -42,7 +41,7 @@ async function getProductosPorCategoria(id, page, order) {
 }
 
 async function updateProducto(body) {
-  if(body.stock===0){
+  if (body.stock === 0) {
     body.activo = false;
   }
   return await modeloProductos.update(
@@ -61,5 +60,6 @@ module.exports = {
   getProductosPorCategoria,
   updateProducto,
   deleteProducto,
-  getProductoById
+  getProductoById,
+  getProductosSinStock
 };
