@@ -47,7 +47,6 @@ async function updateCarritoItem(body, usuarioId) {
     const subtotal = carrito.subtotal + resto;
     await dataCarritos.actualizarSubtotal(subtotal, usuarioId);
     return await data.updateCarritoItem(body);
-    //return null
 }
 
 async function deleteCarritosItems(id, usuarioId) {
