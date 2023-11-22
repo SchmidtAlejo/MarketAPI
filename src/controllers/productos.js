@@ -15,10 +15,6 @@ async function getProductoById(id) {
   return await data.getProductoById(id);
 }
 
-// async function getProductoPorVendedor(id) {
-//   return await data.getProductoPorVendedor(id);
-// }
-
 async function getProductosPorCategoria(id, page, order) {
   return await data.getProductosPorCategoria(id, page, order);
 }

@@ -33,8 +33,13 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      categoriaId: {
+      ventas: {
         type: Sequelize.INTEGER,
+        defaultValue: 0,
+        allowNull: false
+      },
+      categoriaId: {
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Categorias',

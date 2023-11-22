@@ -13,10 +13,10 @@ async function generateSeed() {
 async function createCategorias() {
     const allCategorias = await categorias.getCategorias()
     if (allCategorias.categorias.length === 0) {
-        await categorias.addCategoria({ nombre: "Tecnología" });
-        await categorias.addCategoria({ nombre: "Muebles" });
-        await categorias.addCategoria({ nombre: "Electrodomesticos" });
-        await categorias.addCategoria({ nombre: "Herramientas" });
+        await categorias.addCategoria({ id: 'tecnologia', nombre: "Tecnología" });
+        await categorias.addCategoria({ id: 'muebles', nombre: "Muebles" });
+        await categorias.addCategoria({ id: 'electrodomesticos', nombre: "Electrodomesticos" });
+        await categorias.addCategoria({ id: 'herramientas', nombre: "Herramientas" });
     }
     else {
         console.log("Ya hay categorias creadas");
@@ -66,7 +66,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -76,7 +76,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_973917-MLA53452120688_012023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -86,7 +86,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_966955-MLA48579050616_122021-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -96,7 +96,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_835485-MLA54964000518_042023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -106,7 +106,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_818200-MLA54005510824_022023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -116,7 +116,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_933648-MLA53352642912_012023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -126,7 +126,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_943948-MLU70795868350_082023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -136,7 +136,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_998171-MLA54488300000_032023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -146,7 +146,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_957899-MLA46557830347_062021-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -156,7 +156,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_702422-MLA45466991131_042021-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -166,7 +166,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_845368-MLA48690516376_122021-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -176,7 +176,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_906341-MLU72700584221_112023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -186,7 +186,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_643620-MLA54579556398_032023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -196,7 +196,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_875816-MLU72112722092_102023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -206,7 +206,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_784986-MLU72560256537_102023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -216,7 +216,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_876453-MLU72490788844_102023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -226,7 +226,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_674873-MLU72336794057_102023-O.webp",
-            categoriaId: 1,
+            categoriaId: 'tecnologia',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -236,7 +236,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_978869-MLA51987908977_102022-O.webp",
-            categoriaId: 2,
+            categoriaId: 'muebles',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -246,7 +246,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_794926-MLA51838863640_102022-O.webp",
-            categoriaId: 2,
+            categoriaId: 'muebles',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -256,7 +256,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_981710-MLA53764717622_022023-O.webp",
-            categoriaId: 2,
+            categoriaId: 'muebles',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -266,7 +266,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_837108-MLA50786213328_072022-O.webp",
-            categoriaId: 2,
+            categoriaId: 'muebles',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -276,7 +276,7 @@ async function createProductos() {
             activo: true,
             stock: 5,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_692128-MLA51165939021_082022-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -286,7 +286,7 @@ async function createProductos() {
             activo: true,
             stock: 3,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_907258-MLA70411312459_072023-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -296,7 +296,7 @@ async function createProductos() {
             activo: true,
             stock: 8,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_950096-MLA49989214755_052022-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -306,7 +306,7 @@ async function createProductos() {
             activo: true,
             stock: 6,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_690221-MLA42032560939_062020-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -316,7 +316,7 @@ async function createProductos() {
             activo: true,
             stock: 12,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_793556-MLA42831897708_072020-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -326,7 +326,7 @@ async function createProductos() {
             activo: true,
             stock: 4,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_989099-MLA27695070719_072018-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -336,7 +336,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_776447-MLA51664659454_092022-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -346,7 +346,7 @@ async function createProductos() {
             activo: true,
             stock: 7,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_660102-MLA51454152713_092022-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -356,7 +356,7 @@ async function createProductos() {
             activo: true,
             stock: 5,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_856684-MLA70178659761_062023-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -366,7 +366,7 @@ async function createProductos() {
             activo: true,
             stock: 8,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_967981-MCO32659593508_102019-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -376,7 +376,7 @@ async function createProductos() {
             activo: true,
             stock: 15,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_989184-MLA52852601044_122022-O.webp",
-            categoriaId: 2, 
+            categoriaId: 'muebles', 
             vendedorId: 1,
         });
         productos.addProducto({
@@ -386,7 +386,7 @@ async function createProductos() {
             activo: true,
             stock: 5,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_770440-MLA51044564775_082022-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -396,7 +396,7 @@ async function createProductos() {
             activo: true,
             stock: 8,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_996804-MLU72566438460_112023-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -406,7 +406,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_772171-MLA47425763143_092021-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -416,7 +416,7 @@ async function createProductos() {
             activo: true,
             stock: 6,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_602441-MLU69370777647_052023-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -426,7 +426,7 @@ async function createProductos() {
             activo: true,
             stock: 12,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_886450-MLU71621417415_092023-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -436,7 +436,7 @@ async function createProductos() {
             activo: true,
             stock: 8,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_659846-MLU72631566459_112023-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -446,7 +446,7 @@ async function createProductos() {
             activo: true,
             stock: 7,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_767579-MLA40347552815_012020-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -456,7 +456,7 @@ async function createProductos() {
             activo: true,
             stock: 5,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_747423-MLU72643210275_112023-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -466,7 +466,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_857086-MLA45187483843_032021-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -476,7 +476,7 @@ async function createProductos() {
             activo: true,
             stock: 5,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_807568-MLU72516110299_102023-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -486,7 +486,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_828424-MLA40194179999_122019-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -496,7 +496,7 @@ async function createProductos() {
             activo: true,
             stock: 7,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_643175-MLU72660895464_112023-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -506,7 +506,7 @@ async function createProductos() {
             activo: true,
             stock: 6,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_679509-MLA44728822852_012021-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -516,7 +516,7 @@ async function createProductos() {
             activo: true,
             stock: 8,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_796860-MLU72628056150_112023-O.webp",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -526,7 +526,7 @@ async function createProductos() {
             activo: true,
             stock: 5,
             imagen: "https://www.bidcom.com.ar/publicacionesML/productos/BATI004X/1000x1000-BATI004R.jpg",
-            categoriaId: 3,
+            categoriaId: 'electrodomesticos',
             vendedorId: 1,
         });        
         productos.addProducto({
@@ -536,7 +536,7 @@ async function createProductos() {
             activo: true,
             stock: 8,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_656678-MLA69951087361_062023-O.webp",
-            categoriaId: 4,
+            categoriaId: 'herramientas',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -546,7 +546,7 @@ async function createProductos() {
             activo: true,
             stock: 6,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_979324-MLA46217462113_052021-O.webp",
-            categoriaId: 4,
+            categoriaId: 'herramientas',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -556,7 +556,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_624834-MLU72531534604_102023-O.webp",
-            categoriaId: 4,
+            categoriaId: 'herramientas',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -566,7 +566,7 @@ async function createProductos() {
             activo: true,
             stock: 7,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_621624-MLA46608278558_072021-O.webp",
-            categoriaId: 4,
+            categoriaId: 'herramientas',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -576,7 +576,7 @@ async function createProductos() {
             activo: true,
             stock: 12,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_981681-MLU70654921372_072023-O.webp",
-            categoriaId: 4,
+            categoriaId: 'herramientas',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -586,7 +586,7 @@ async function createProductos() {
             activo: true,
             stock: 5,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_645838-MLU72405691717_102023-O.webp",
-            categoriaId: 4,
+            categoriaId: 'herramientas',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -596,7 +596,7 @@ async function createProductos() {
             activo: true,
             stock: 10,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_696857-MLA49001851290_022022-O.webp",
-            categoriaId: 4,
+            categoriaId: 'herramientas',
             vendedorId: 1,
         });
         productos.addProducto({
@@ -606,7 +606,7 @@ async function createProductos() {
             activo: true,
             stock: 6,
             imagen: "https://http2.mlstatic.com/D_NQ_NP_669410-MLA42258602085_062020-O.webp",
-            categoriaId: 4,
+            categoriaId: 'herramientas',
             vendedorId: 1,
         });
         

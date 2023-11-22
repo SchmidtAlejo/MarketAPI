@@ -23,12 +23,13 @@ const verificarStock = async (usuarioId) => {
 
 const restarStock = async (usuarioId) => {
     const carrito = await dataCarritos.getCarritoActivo(usuarioId);
-    const carritosItems = await dataCarritosItems.getCarritosItems(carrito.id)
+    const carritosItems = await dataCarritosItems.getCarritosItems(carrito.id);
     carritosItems.carritosItems.forEach(async carritoItem => {
         await dataProductos.updateProducto(
             {
                 id: carritoItem.productoId,
-                stock: carritoItem.Producto.stock - carritoItem.cantidad
+                stock: carritoItem.Producto.stock - carritoItem.cantidad,
+                ventas: carritoItem.Producto.ventas + carritoItem.cantidad
             });
     });
     await restaurarStock();
