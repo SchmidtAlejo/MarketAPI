@@ -38,15 +38,17 @@ module.exports = {
         require: true,
       }
     },
-    acquireConnectionTimeout: 5000,
     pool: {
       min: 0,
-      max: 10,
-      createTimeoutMillis: 8000,
-      acquireTimeoutMillis: 8000,
-      idleTimeoutMillis: 8000,
-      reapIntervalMillis: 1000,
-      createRetryIntervalMillis: 100,
+      max: 7,
+      acquireTimeoutMillis: 300000,
+      createTimeoutMillis: 300000,
+      destroyTimeoutMillis: 50000,
+      idleTimeoutMillis: 300000,
+      reapIntervalMillis: 10000,
+      createRetryIntervalMillis: 2000,
+      propagateCreateError: false,
     },
+    acquireConnectionTimeout: 60000,
   }
 };
