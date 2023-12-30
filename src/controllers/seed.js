@@ -15,7 +15,7 @@ async function createCategorias() {
     if (allCategorias.categorias.length === 0) {
         await categorias.addCategoria({ id: 'tecnologia', nombre: "Tecnología" });
         await categorias.addCategoria({ id: 'muebles', nombre: "Muebles" });
-        await categorias.addCategoria({ id: 'electrodomesticos', nombre: "Electrodomesticos" });
+        await categorias.addCategoria({ id: 'electrodomesticos', nombre: "Electrodomésticos" });
         await categorias.addCategoria({ id: 'herramientas', nombre: "Herramientas" });
     }
     else {
