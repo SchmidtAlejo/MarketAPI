@@ -1,4 +1,5 @@
 const modeloProductos = require("./../../models").Productos;
+const modeloProductosDeseados = require("./../../models").ProductosDeseados;
 const modeloCategorias = require("./../../models").Categorias;
 
 async function addProducto(body) {
@@ -17,13 +18,21 @@ async function getProductosSinStock() {
   };
 }
 
-async function getProductoById(id) {
+async function getProductoById(id, usuarioId) {
+  if(usuarioId){
+    const response= await modeloProductos.findOne({
+      where: { id: id },
+      include: [{ model: modeloCategorias }, { model: modeloProductosDeseados, where: {usuarioId: usuarioId}, required: false}]
+    });
+    console.log(response);
+    return response;
+  }
+
   return await modeloProductos.findOne({
     where: { id: id },
     include: modeloCategorias
   });
 }
-
 async function getProductosPorCategoria(id, page, order) {
   const LIMIT_PRODUCT_PAGES = 8;
   //order -> ASC, DESC

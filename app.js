@@ -14,6 +14,7 @@ var carritosRouter = require('./src/routes/carritos');
 var carritosItemsRouter = require('./src/routes/carritosItems');
 var direccionesRouter = require('./src/routes/direcciones');
 var comprasRouter = require('./src/routes/compras');
+var productosDeseadosRouter = require('./src/routes/productosDeseados');
 var seedRouter = require('./src/routes/seed');
 
 var app = express();
@@ -39,6 +40,7 @@ app.use('/api/carritos', carritosRouter);
 app.use('/api/carritosItems', carritosItemsRouter);
 app.use('/api/direcciones', direccionesRouter);
 app.use('/api/compras', comprasRouter);
+app.use('/api/productosDeseados', productosDeseadosRouter);
 app.use('/api/seed', seedRouter);
 
 // catch 404 and forward to error handler

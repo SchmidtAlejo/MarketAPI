@@ -11,8 +11,9 @@ async function getProducto() {
   return await data.getProducto();
 }
 
-async function getProductoById(id) {
-  return await data.getProductoById(id);
+async function getProductoById(id, usuarioId) {
+  
+  return await data.getProductoById(id, usuarioId);
 }
 
 async function getProductosPorCategoria(id, page, order) {
