@@ -32,11 +32,5 @@ module.exports = {
     port: process.env.PROD_PORT,
     url: process.env.PROD_URL,
     dialect: 'postgres',
-    dialectOptions: {
-      bigNumberStrings: true,
-      ssl: {
-        require: true,
-      }
-    }
   }
 };
